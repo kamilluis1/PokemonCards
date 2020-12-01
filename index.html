@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll Pokemon</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+</head>
+
+<body>
+  <main>
+    <header class="header">
+      <img class="header__img" src="./images/pokemon-logo.webp" alt="pokeball" />
+      <h1 class="header__heading">
+        PokemonCards
+        <span class="header__span header__span--small">from</span>
+        <a class="header__span--link" href="https://pokemontcg.io/" target='_blank'><span class="header__span header__span--medium"> pokemontcg.io </span></a>
+      </h1>
+      <div class="search">
+        <label class="search__label" for="search">Search Pokemon</label>
+        <input class="search__input" type="text" name="search" id="search" autocomplete="off" />
+      </div>
+      <input class="header__input" id="burger" type="checkbox" />
+
+      <label for="burger" class="header__burger">
+        <span class="header__burger-span"></span>
+        <span class="header__burger-span"></span>
+        <span class="header__burger-span"></span>
+      </label>
+    </header>
+    <div class="jumbotron">
+      <div class="jumbotron__inner-bg">
+        <div class="jumbotron__center">
+          <img class="jumbotron__img" src="./images/pokemon_logo.png" alt="Pokemon logo" />
+          <div class="jumbotron__center-inner">
+            <h2 class="jumbotron__heading">
+              <span class="jumbotron__span">Find something more </span>
+              <span class="jumbotron__span">about your favorite creatures
+              </span>
+              <span class="jumbotron__span">with</span>
+              <span class="jumbotron__span">Pokemon Api</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content__inner">
+        <div class="catalog">
+      
+          <section class="catalog__content" data-content>
+            <p class="catalog__info hide" data-info>There are no results</p>
+          </section>
+          <footer class="catalog__footer">
+            <button class="catalog__button" data-button><span class="catalog__button-span">Load More</span></button>
+            <div class="catalog__loader hide" data-loader>Loading...</div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src='./js/gsap.js'></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/index.js"></script>
+ 
+
+  <script>
+    const data = new PokemonTCGCatalog();
+    data.initializeCatalog();
+  </script>
+  <script>
+    const card = document.querySelector('.card__inner');
+    console.log(card)
+
+    card.addEventListener('click', function(){
+        console.log('clicked')
+        card.classList.toggle('is-flipped')
+    })
+  </script>
+</body>
+
+</html>
